@@ -1,0 +1,397 @@
+/* style.css */
+
+/* ① リセット：全要素にborder-boxを設定 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ② CSS変数でカラーテーマを定義 */
+:root {
+  /* カラー */
+  --color-primary: #3b82f6;      /* メインカラー（青） */
+  --color-primary-dark: #2563eb; /* ホバー時の濃い青 */
+  --color-text: #1f2937;         /* 本文の文字色 */
+  --color-text-light: #6b7280;   /* 薄い文字色 */
+  --color-bg: #ffffff;           /* 背景色 */
+  --color-bg-secondary: #f9fafb; /* セクションの背景色 */
+  --color-border: #e5e7eb;       /* 枠線の色 */
+
+  /* フォントサイズ */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.25rem;    /* 20px */
+  --font-size-xl: 1.5rem;     /* 24px */
+  --font-size-2xl: 2rem;      /* 32px */
+  --font-size-3xl: 2.5rem;    /* 40px */
+
+  /* 余白 */
+  --spacing-sm: 0.5rem;   /* 8px */
+  --spacing-md: 1rem;     /* 16px */
+  --spacing-lg: 1.5rem;   /* 24px */
+  --spacing-xl: 2rem;     /* 32px */
+  --spacing-2xl: 4rem;    /* 64px */
+
+  /* その他 */
+  --border-radius: 8px;
+  --max-width: 1000px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ③ 基本のタイポグラフィ設定 */
+body {
+  font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+  color: var(--color-text);
+  line-height: 1.7;
+  background: var(--color-bg);
+}
+
+/* ④ リンクのデフォルトスタイルをリセット */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ⑤ 画像を最大幅100%に */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+header {
+  position: sticky;    /* CSSシリーズ第二回で学んだスクロール追従 */
+  top: 0;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;             /* 中央揃え */
+  padding: var(--spacing-md) var(--spacing-lg);
+
+  /* Flexboxで左右に配置 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+}
+
+header nav ul {
+  display: flex;              /* ナビを横並びに */
+  gap: var(--spacing-lg);
+  list-style: none;
+}
+
+header nav a {
+  font-weight: 500;
+  transition: color 0.2s ease;  /* CSSシリーズ第三回のtransition */
+}
+
+header nav a:hover {
+  color: var(--color-primary);
+}
+
+#about {
+  padding: var(--spacing-2xl) var(--spacing-lg);
+}
+
+.about-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+
+  /* Flexboxで写真とテキストを横並びに */
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xl);
+}
+
+.profile-image {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;      /* 円形にする */
+  object-fit: cover;       /* 縦横比を保ちつつ枠に収める */
+  flex-shrink: 0;          /* 縮まないようにする（CSSシリーズ第二回） */
+  box-shadow: var(--shadow);
+}
+
+.about-text h1 {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--spacing-sm);
+}
+
+.catchphrase {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  font-weight: bold;
+  margin-bottom: var(--spacing-md);
+}
+
+.about-text .bio {
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text-light);
+}
+
+.sns-links {
+  display: flex;
+  gap: var(--spacing-md);
+  list-style: none;
+}
+
+.sns-links a {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.sns-links a:hover {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-primary);
+}
+
+#skills {
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  background: var(--color-bg-secondary);
+}
+
+#skills h2 {
+  max-width: var(--max-width);
+  margin: 0 auto var(--spacing-xl);
+  font-size: var(--font-size-2xl);
+}
+
+.skill-list {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  list-style: none;
+
+  /* Gridで縦に並べる（CSSシリーズ第二回） */
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+.skill-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;  /* 名前:固定幅・バー:残り全部 */
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.skill-name {
+  font-weight: 500;
+}
+
+.skill-bar {
+  height: 12px;
+  background: var(--color-border);
+  border-radius: 999px;    /* 完全な丸角（CSSシリーズ第一回） */
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 999px;
+
+  /* ページ読み込み時にバーが伸びるアニメーション（CSSシリーズ第三回） */
+  animation: fillBar 1s ease forwards;
+}
+
+@keyframes fillBar {
+  from { width: 0; }
+  /* to の値はHTML側のstyle="width: 90%"などが使われる */
+}
+
+#works {
+  padding: var(--spacing-2xl) var(--spacing-lg);
+}
+
+#works h2 {
+  max-width: var(--max-width);
+  margin: 0 auto var(--spacing-xl);
+  font-size: var(--font-size-2xl);
+}
+
+.timeline {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  list-style: none;
+
+  /* タイムラインの縦線を表現 */
+  border-left: 2px solid var(--color-border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+/* タイムラインの丸ポイント（::beforeで作る・CSSシリーズ第三回） */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 2px solid var(--color-bg);
+}
+
+.timeline-item time {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-sm);
+}
+
+.timeline-item h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.timeline-item p {
+  color: var(--color-text-light);
+}
+
+#contact {
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  background: var(--color-bg-secondary);
+}
+
+#contact h2 {
+  max-width: 600px;
+  margin: 0 auto var(--spacing-sm);
+  font-size: var(--font-size-2xl);
+}
+
+#contact > p {
+  max-width: 600px;
+  margin: 0 auto var(--spacing-xl);
+  color: var(--color-text-light);
+}
+
+#contact form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  font-family: inherit;
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* フォーカス時のスタイル（CSSシリーズ第一回） */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+button[type="submit"] {
+  padding: var(--spacing-sm) var(--spacing-xl);
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+footer {
+  padding: var(--spacing-xl) var(--spacing-lg);
+  text-align: center;
+  color: var(--color-text-light);
+}
+
+footer p:first-child {
+  margin-bottom: var(--spacing-sm);
+}
+
+footer a {
+  transition: color 0.2s ease;
+}
+
+footer a:hover {
+  color: var(--color-primary);
+}
+
+footer small {
+  font-size: var(--font-size-sm);
+}
+
+main section h2 {
+  position: relative;
+  padding-bottom: var(--spacing-md);
+}
+
+/* 見出しの下に短いアクセントラインを追加（::afterを使う） */
+main section h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 48px;
+  height: 4px;
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+/* アニメーション低減設定のユーザーには動きを抑える */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>jusensasami │ ポートフォリオ</title>
+  <meta name="deccription" content="jusensasamiの自己紹介ページです。スキル・経歴・実績をご紹介します。" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <p class="logo">jusen sasami</p>
+
+      <nav aria-label="メインナビゲーション">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#works">Works</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="about-innner">
+        <img
+          src="profile.jpg"
+          alt="jusensasamiのプロフィール写真"
+          class="profile-image"
+        />
+
+        <div clas="about-text">
+          <h1>こんにちは、jusensasamiです👏</h1>
+          <p class="catchphrase">まだ何者でもない</p>
+          <p>
+            2011年に工作機械メーカーに機械設計者として就職。2022年に転職し半導体搬送装置メーカーへ。
+          </p>
+
+          <ul class="sns-links">
+            <li>
+              <a href="https://x.com/jusen_sasami" target="_blank" rel="noopener noreferrer">
+                X（旧Twitter）
+              </a>
+            </li>
+            <li>
+              <a href=" https://jusensasami.github.io/" target="_blank" rel="noopener noreferrer">
+                GitHub
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+
+      <ul class="skills-list">
+        <li class="skill-item">
+          <p class="slill-name">HTML / CSS</p>
+          <div class="skill-bar" role="img" aria-label="習熟度：">
+            <div class="skill-bar-inner" style="width: 90%"></div>
+          </div>
+        </li>
+        <li class="skill">
+          <p class="skill-name">JavaScript / TypeScript</p>
+          <div class="skill-bar" role="img" aria-label="習熟度：">
+            <div class="skill-bar-inner" style="width: 80%"></div>
+          </div>
+        </li>
+        <li class="skill">
+          <p class="skill-name">React</p>
+          <div class="skill-bar" role="img" aria-label="習熟度：">
+            <div class="skill-bar-inner" style="width: 70%"></div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="works">
+      <h2>Works & Career</h2>
+
+      <ol class="timeline">
+        <li class="timeline-item">
+          <article>
+            <time datetime="2011-04">2011年4月</time>
+            <h3>就職</h3>
+            <p>内面研削盤メーカーに新卒入社し機械設計者として従事。</p>
+          </article>
+        </li>
+        <li class="timeline-item">
+          <article>
+            <time datetime="2022-08">2022年8月</time>
+            <h3>転職</h3>
+            <p>10年務めた退職。半導体搬送装置メーカーへ転職。</p>
+          </article>
+        </li>
+        <li class="timeline-item">
+          <article>
+            <time datetime="2026-09">2026年9月</time>
+            <h3>現在</h3>
+            <p>自分にできることを探すためリスキリング中。</p>
+          </article>
+        </li>
+      </ol>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>ご相談・ご質問はこちらからお気軽にどうぞ。</p>
+
+      <form action="" method="post">
+        <div class="form-group">
+          <label for="name">お名前 <span aria-hidden="true">※必須</span></label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="jusensasami"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">メールアドレス <span aria-hidden="true">※必須</span></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder=""
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="message">メッセージ <span aria-hidden="true">※必須</span></label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            placeholder="お問い合わせ内容を記入してください。"
+          ></textarea>
+        </div>
+
+        <button type="submit">送信する</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      <a href="https://x.com/jusen_sasami" target="_blank" rel="noopener noreferrer">X</a>
+      ・
+      <a href="" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </p>
+    <p><small>&copy; 2026 jusensasami. All rights reserved.</small></p>
+  </footer>
+
+</body>
+</html>
